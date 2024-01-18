@@ -27,43 +27,35 @@
               </div>
             </div>
 
+          
             <div class="contactForm border-1 rounded-12 px-60 py-60 md:px-25 md:py-30">
-
-              <div class="form-input ">
-                <input type="text" required>
-                <label class="lh-1 text-16 text-light-1">Username</label>
+              <form method="POST" action="{% url 'register_view' %}">
+                {% csrf_token %}
+              <div  class="form-input">
+                <input type="text" name="username" placeholder="Username"  required>
+                <label class="lh-1 text-16 text-light-1" for="username"></label>
               </div>
 
 
               <div class="form-input mt-30">
-                <input type="text" required>
-                <label class="lh-1 text-16 text-light-1">First Name</label>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <label class="lh-1 text-16 text-light-1" for="email"></label>
               </div>
 
-
+              
               <div class="form-input mt-30">
-                <input type="text" required>
-                <label class="lh-1 text-16 text-light-1">Last Name</label>
+                <input type="password" name="password" placeholder="Password" required>
+                <label class="lh-1 text-16 text-light-1" for="password"></label>
               </div>
 
 
-              <div class="form-input mt-30">
-                <input type="email" required>
-                <label class="lh-1 text-16 text-light-1">Your Email</label>
+              <div>
+                <button type="submit" class="btn btn-primary btn-block text-white button -md -dark-1 bg-accent-1 text-white col-12 mt-30">Register<i class="icon-arrow-top-right ml-10"></i></button>
               </div>
 
-
-              <div class="form-input mt-30">
-                <input type="email" required>
-                <label class="lh-1 text-16 text-light-1">Confirm email</label>
-              </div>
-
-
-              <button class="button -md -dark-1 bg-accent-1 text-white col-12 mt-30">
-                Register
-                <i class="icon-arrow-top-right ml-10"></i>
-              </button>
             </div>
+          </form>
+          
           </div>
         </div>
       </div>

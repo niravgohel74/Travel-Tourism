@@ -20,27 +20,30 @@
         <div data-anim="slide-up" class="row justify-center">
           <div class="col-xl-6 col-lg-7 col-md-9">
             <div class="text-center mb-60 md:mb-30">
-              <h1 class="text-30">Forgot Password</h1>
+              <h1 class="text-30">One Time Password</h1>
+              
             </div>
 
             <div class="contactForm border-1 rounded-12 px-60 py-60 md:px-25 md:py-30">
-              <form method="post" action="# ">
-              <div class="form-input ">
-                <input type="email" name="email" required>
-                <label class="lh-1 text-16 text-light-1">Email Address</label>
-              </div>
-              </form>
-              <div class="row y-ga-10 justify-between items-center pt-30">
+              <form method="post" action="{% url 'otp_verification' %}">
+                {% csrf_token %}
+              <div class="form-input">
+                <input type="text" name="otp" placeholder="Enter OTP" required>
+                <label class="lh-1 text-16 text-light-1"></label>
               </div>
 
-              <button class="button -md -dark-1 bg-accent-1 text-white col-12 mt-30">
-                Submit
-                <i class="icon-arrow-top-right ml-10"></i>
-              </button>
+              <div class="row y-ga-10 justify-between items-center pt-30">
+                <div class="col-auto">
+                </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary btn-block text-white button -md -dark-1 bg-accent-1 text-white col-12 mt-30">Verify OTP<i class="icon-arrow-top-right ml-10"></i></button>
+              </div>
+            </form>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-  {% endblock %}
+{% endblock %}
