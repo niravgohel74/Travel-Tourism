@@ -11,6 +11,7 @@ from django.db import IntegrityError
 data = {}
 
 index_page_link = "index.html"
+index_page_link1 = "index1.html"
 login_page_link = "login_page.html"
 register_page_link = "register_page.html"
 profile_page_link = "profile_page.html"
@@ -20,6 +21,9 @@ otp_page_link = "otp_page.html"
 ## START: VIEW PAGES ##
 def index(request):
     return render(request, index_page_link)
+
+def index1(request):
+    return render(request, index_page_link1)
 
 def login_page(request):
     return render(request, login_page_link)
@@ -87,7 +91,7 @@ def login_view(request):
         master = Master.objects.get(Email=request.POST['email'])  
         if master.Password == request.POST['password']:
             request.session['email'] = master.Email
-            return redirect(index)
+            return redirect(index1)
         else:
             print("Invalid Password")
     except Master.DoesNotExist as err:
